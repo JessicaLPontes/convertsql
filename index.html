@@ -3,69 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversor Excel para SQL</title>
+    <title>Excel para SQL</title>
     <link rel="icon" href="https://github.com/JessicaLPontes/Convert/blob/main/logo.png?raw=true" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <button id="botao-tema">
+    <!-- Botão de alternar tema -->
+    <button id="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon"></i>
     </button>
 
-    <div class="container-principal">
+    <!-- Container principal -->
+    <div class="main-container">
+        <!-- Logo e título -->
         <img id="logo" src="https://github.com/JessicaLPontes/Convert/blob/main/logo.png?raw=true" alt="Logo">
-        <h1>Conversor de Excel para SQL</h1>
+        <h1>Excel para SQL</h1>
 
-        <div class="botoes-container">
-            <div class="grupo-botoes">
-                <input id="entrada-insert" type="file" class="input-arquivo" multiple accept=".xlsx, .xls">
-                <button class="botao-arquivo" data-tipo="insert">
-                    <i class="fas fa-file-import"></i> Carregar para INSERT
-                </button>
-            </div>
+        <!-- Botões -->
+        <div class="buttons-container">
+            <input id="insert-input" type="file" style="display:none;" onchange="handleFiles(event, 'INSERT')" multiple accept=".xlsx, .xls">
+            <button class="file-button" onclick="document.getElementById('insert-input').click()">
+                <i class="fas fa-plus-circle"></i> Carregar para INSERT
+            </button>
             
-            <div class="grupo-botoes">
-                <input id="entrada-update" type="file" class="input-arquivo" multiple accept=".xlsx, .xls">
-                <button class="botao-arquivo" data-tipo="update">
-                    <i class="fas fa-file-export"></i> Carregar para UPDATE
-                </button>
-            </div>
+            <input id="update-input" type="file" style="display:none;" onchange="handleFiles(event, 'UPDATE')" multiple accept=".xlsx, .xls">
+            <button class="file-button" onclick="document.getElementById('update-input').click()">
+                <i class="fas fa-sync-alt"></i> Carregar para UPDATE
+            </button>
             
-            <div class="grupo-botoes">
-                <input id="entrada-cardap" type="file" class="input-arquivo" accept=".xlsx, .xls">
-                <button class="botao-arquivo" data-tipo="cardap">
-                    <i class="fas fa-table"></i> Carregar para CARDAP
-                </button>
-            </div>
+            <input id="cardap-input" type="file" style="display:none;" onchange="handleFiles(event, 'CARDAP')" multiple accept=".xlsx, .xls">
+            <button class="file-button cardap" onclick="document.getElementById('cardap-input').click()">
+                <i class="fas fa-table"></i> Carregar para CARDAP
+            </button>
             
-            <button id="botao-limpar" class="botao-acao">
+            <button id="clear-button" onclick="clearFiles()">
                 <i class="fas fa-broom"></i> Limpar Tudo
             </button>
         </div>
 
-        <div class="area-resultados">
-            <div id="resultado-insert" class="painel-resultado">
+        <!-- Resultados -->
+        <div class="results-container">
+            <div id="insert-results" class="result-panel">
                 <h2><i class="fas fa-plus-circle"></i> Resultados INSERT</h2>
-                <div class="conteudo-resultado"></div>
+                <div class="result-content"></div>
             </div>
             
-            <div id="resultado-update" class="painel-resultado">
+            <div id="update-results" class="result-panel">
                 <h2><i class="fas fa-sync-alt"></i> Resultados UPDATE</h2>
-                <div class="conteudo-resultado"></div>
+                <div class="result-content"></div>
             </div>
             
-            <div id="resultado-cardap" class="painel-resultado">
+            <div id="cardap-results" class="result-panel">
                 <h2><i class="fas fa-table"></i> Resultados CARDAP</h2>
-                <div class="conteudo-resultado"></div>
+                <div class="result-content"></div>
             </div>
         </div>
     </div>
 
-    <footer class="rodape">
+    <!-- Rodapé -->
+    <footer class="footer">
         <p>Desenvolvido por <a href="https://github.com/JessicaLPontes" target="_blank">Jessica Pontes</a></p>
     </footer>
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.4/xlsx.full.min.js"></script>
     <script src="script.js"></script>
 </body>

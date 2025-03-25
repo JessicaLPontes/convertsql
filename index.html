@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Excel para SQL</title>
+    <link rel="icon" href="https://github.com/JessicaLPontes/Convert/blob/main/logo.png?raw=true" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="botao-tema">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="container-principal">
+        <img id="logo" src="https://github.com/JessicaLPontes/Convert/blob/main/logo.png?raw=true" alt="Logo">
+        <h1>Conversor de Excel para SQL</h1>
+
+        <div class="botoes-container">
+            <div class="grupo-botoes">
+                <input id="entrada-insert" type="file" class="input-arquivo" multiple accept=".xlsx, .xls">
+                <button class="botao-arquivo" data-tipo="insert">
+                    <i class="fas fa-file-import"></i> Carregar para INSERT
+                </button>
+            </div>
+            
+            <div class="grupo-botoes">
+                <input id="entrada-update" type="file" class="input-arquivo" multiple accept=".xlsx, .xls">
+                <button class="botao-arquivo" data-tipo="update">
+                    <i class="fas fa-file-export"></i> Carregar para UPDATE
+                </button>
+            </div>
+            
+            <div class="grupo-botoes">
+                <input id="entrada-cardap" type="file" class="input-arquivo" accept=".xlsx, .xls">
+                <button class="botao-arquivo" data-tipo="cardap">
+                    <i class="fas fa-table"></i> Carregar para CARDAP
+                </button>
+            </div>
+            
+            <button id="botao-limpar" class="botao-acao">
+                <i class="fas fa-broom"></i> Limpar Tudo
+            </button>
+        </div>
+
+        <div class="area-resultados">
+            <div id="resultado-insert" class="painel-resultado">
+                <h2><i class="fas fa-plus-circle"></i> Resultados INSERT</h2>
+                <div class="conteudo-resultado"></div>
+            </div>
+            
+            <div id="resultado-update" class="painel-resultado">
+                <h2><i class="fas fa-sync-alt"></i> Resultados UPDATE</h2>
+                <div class="conteudo-resultado"></div>
+            </div>
+            
+            <div id="resultado-cardap" class="painel-resultado">
+                <h2><i class="fas fa-table"></i> Resultados CARDAP</h2>
+                <div class="conteudo-resultado"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <p>Desenvolvido por <a href="https://github.com/JessicaLPontes" target="_blank">Jessica Pontes</a></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.4/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
